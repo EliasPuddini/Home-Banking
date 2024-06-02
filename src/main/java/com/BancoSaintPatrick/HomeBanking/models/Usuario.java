@@ -24,7 +24,9 @@ public class Usuario {
     String nombre;
     double saldo;
     @OneToMany(mappedBy = "transacciones.emisor")
-    List<Transaccion> transacciones;
+    List<Transaccion> recibido;
+    @OneToMany(mappedBy = "transacciones.emisor")
+    List<Transaccion> emitido;
     @OneToMany
     List<Tarjeta> tarjetas;
 }

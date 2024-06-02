@@ -14,7 +14,8 @@ public class UsuarioDTO {
     double dni;
     String nombre;
     double saldo;
-    List<Transaccion> transacciones;
+    List<Transaccion> emitido;
+    List<Transaccion> recibido;
     List<Tarjeta> tarjetas;
 
     public UsuarioDTO(Usuario usuario){
@@ -23,7 +24,8 @@ public class UsuarioDTO {
         this.dni = usuario.getDni();
         this.nombre = usuario.getNombre();
         this.saldo = usuario.getSaldo();
-        this.transacciones = usuario.getTransacciones();
+        this.emitido = usuario.getEmitido();
+        this.recibido = usuario.getRecibido();
         this.tarjetas = usuario.getTarjetas();
     }
 }
