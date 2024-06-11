@@ -17,8 +17,11 @@ public class Transaccion {
     @GenericGenerator(name = "native",strategy = "native")
     Long id;
     @ManyToOne
+    @JoinColumn(name = "emisor_id")
     Usuario emisor;
-    Usuario Receptor;
+    @ManyToOne
+    @JoinColumn(name = "receptor_id")
+    Usuario receptor;
     double monto;
 
 }

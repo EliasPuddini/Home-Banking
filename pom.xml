@@ -77,6 +77,13 @@
 			<artifactId>mysql</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.eclipse.dirigible/dirigible-database-h2 -->
+		<dependency>
+			<groupId>org.eclipse.dirigible</groupId>
+			<artifactId>dirigible-database-h2</artifactId>
+			<version>10.5.0</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>

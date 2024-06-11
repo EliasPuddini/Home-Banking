@@ -1,9 +1,6 @@
 package com.BancoSaintPatrick.HomeBanking.models;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,6 +11,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
+@Entity
 public class Usuario {
 
     @Id
@@ -23,9 +21,9 @@ public class Usuario {
     double dni;
     String nombre;
     double saldo;
-    @OneToMany(mappedBy = "transacciones.emisor")
+    @OneToMany(mappedBy = "receptor")
     List<Transaccion> recibido;
-    @OneToMany(mappedBy = "transacciones.emisor")
+    @OneToMany(mappedBy = "emisor")
     List<Transaccion> emitido;
     @OneToMany
     List<Tarjeta> tarjetas;
