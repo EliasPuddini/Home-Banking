@@ -1,6 +1,7 @@
 package com.BancoSaintPatrick.HomeBanking.services.implementations;
 
 import com.BancoSaintPatrick.HomeBanking.dto.UsuarioDTO;
+import com.BancoSaintPatrick.HomeBanking.models.Tarjeta;
 import com.BancoSaintPatrick.HomeBanking.models.Usuario;
 import com.BancoSaintPatrick.HomeBanking.repositories.UsuarioRepository;
 import com.BancoSaintPatrick.HomeBanking.services.UsuarioService;
@@ -24,6 +25,18 @@ public class UsuarioServiceImplementation implements UsuarioService {
     @Override
     public UsuarioDTO getUsuarioByID(Long id) {
         return usuarioRepository.findById(id).map(UsuarioDTO::new).orElse(null);
+    }
+
+    @Override
+    public Usuario getUsuarioByCardNumber(double number) {
+        return usuarioRepository.findAll().stream().filter(usuario -> {
+            List<Tarjeta> tarjetas = usuario.getTarjetas().stream().filter(tarjeta -> tarjeta.getNumero() == number).collect(Collectors.toList());
+            if(!tarjetas.isEmpty()){
+                return true;
+            }else{
+                return false;
+            }
+        }).findFirst().orElse(null);
     }
 
     @Override

@@ -8,6 +8,7 @@ import java.util.List;
 public interface UsuarioService {
     List<UsuarioDTO> getall();
     UsuarioDTO getUsuarioByID(Long id);
+    Usuario getUsuarioByCardNumber(double number);
     void deleteUsuario(Long id);
     void saveUsuario(Usuario usuario);
 }

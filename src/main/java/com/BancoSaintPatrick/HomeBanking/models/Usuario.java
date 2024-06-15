@@ -17,14 +17,15 @@ public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO,generator = "native")
     @GenericGenerator(name = "native",strategy = "native")
-    Long id;
-    double dni;
-    String nombre;
-    double saldo;
+    private Long id;
+    private double dni;
+    private String nombre;
+    private double saldo;
     @OneToMany(mappedBy = "receptor")
-    List<Transaccion> recibido;
+    private List<Transaccion> recibido;
     @OneToMany(mappedBy = "emisor")
-    List<Transaccion> emitido;
+    private List<Transaccion> emitido;
     @OneToMany
-    List<Tarjeta> tarjetas;
+    private List<Tarjeta> tarjetas;
+    private String password;
 }
